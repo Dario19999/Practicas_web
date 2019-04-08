@@ -1,0 +1,15 @@
+<?php header("Content-type: text/xml");?>
+<?php echo ('<?xml version="1.0" encoding="ISO-8859-1"?>');?>
+<?php
+	include(inc/conecta.php);
+	$consulta=mysql_query("SELECT * FROM agenda");
+	echo "<agenda>"."<br>";
+	while($resultado=mysql_fetch_array($consulta)){
+		echo "<amigo numero='$resultado[numid]'>"."<br>";
+		echo "<nombre>$resultado[nombre]</nombre>"."<br>";
+		echo "<telefono>$resultado[telefono]</telefono>"."<br>";
+		echo "<correo>$resultado[correo]</correo>"."<br>";
+		echo "</amigo>"."<br>";
+	}
+	echo "</agenda>"."<br>";
+?>
